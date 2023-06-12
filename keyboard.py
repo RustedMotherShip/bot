@@ -94,6 +94,10 @@ adm_btn = {\
 'Забанить':'adm_ban',\
 'Выход':'adm_exit',\
 }
+adm_add = {\
+'Добавить полностью':'add_big',\
+'Добавить сокращённо':'add_small',\
+}
 def day_s(h):
     day = int(datetime.now().day)#сегодня 
     o = int(datetime.now().month) #номер месяца  
@@ -201,4 +205,16 @@ async def kb7(ck):
     await ck.clear_keyboard()
     await ck.new_width_of(1)
     await ck.new_list_of(answer_btn)
+    return ck.current_keyboard
+
+async def adm_kb(ck):
+    await ck.clear_keyboard()
+    await ck.new_width_of(1)
+    await ck.new_list_of(adm_btn)
+    return ck.current_keyboard
+
+async def adm_add_kb(ck):
+    await ck.clear_keyboard()
+    await ck.new_width_of(1)
+    await ck.new_list_of(adm_add)
     return ck.current_keyboard
